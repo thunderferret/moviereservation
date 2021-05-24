@@ -7,26 +7,54 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
  @RestController
  public class SeatController {
+
+        // modified by jungilkim (Added Code)
+        public int nTotalCount = 100;
+
+        // modified by jungilkim (Added Code)
+        @Autowired
+        SeatRepository seatRepository;
 
 @RequestMapping(value = "/reserveSeat",
         method = RequestMethod.POST,
         produces = "application/json;charset=UTF-8")
 
-public void seatRequest(HttpServletRequest request, HttpServletResponse response)
+public boolean seatRequest(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
-        System.out.println("##### /seat/seatRequest  called #####");
+                // modified by jungilkim (Added Code)
+                boolean ret =  false;
+
+                int seatqty = Integer.parseInt(request.getParameter("seatQty"));
+                System.out.println("##### seatQty : " + request.getParameter("seatQty") + "Current Seat : " + nTotalCount);
+
+                if(nTotalCount > seatqty){
+                        nTotalCount = nTotalCount - seatqty;
+                        ret = true;
+                }
+
+                return ret;
         }
 
 @RequestMapping(value = "/cancelReserveSeat",
         method = RequestMethod.POST,
         produces = "application/json;charset=UTF-8")
 
-public void seatCancel(HttpServletRequest request, HttpServletResponse response)
+public boolean seatCancel(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
-        System.out.println("##### /seat/seatCancel  called #####");
+                // modified by jungilkim (Added Code)
+                boolean ret =  false;
+
+                int seatqty = Integer.parseInt(request.getParameter("seatQty"));
+                System.out.println("##### seatQty : " + request.getParameter("seatQty") + "Current Seat : " + nTotalCount);
+
+                if(seatqty + nTotalCount <= 100){
+                        nTotalCount = nTotalCount + seatqty;
+                        ret = true;
+                }
+
+                return ret;
         }
  }
