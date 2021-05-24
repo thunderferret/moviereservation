@@ -48,7 +48,7 @@ phases:
             app: $_PROJECT_NAME
         spec:
           ports:
-            - port: 8080
+            - port: 8084
               targetPort: 8084
           selector:
             app: $_PROJECT_NAME
@@ -75,11 +75,11 @@ phases:
                 - name: $_PROJECT_NAME
                   image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$_PROJECT_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION
                   ports:
-                    - containerPort: 8080
+                    - containerPort: 8084
                   readinessProbe:
                     httpGet:
                       path: /actuator/health
-                      port: 8080
+                      port: 8084
                     initialDelaySeconds: 10
                     timeoutSeconds: 2
                     periodSeconds: 5
@@ -87,7 +87,7 @@ phases:
                   livenessProbe:
                     httpGet:
                       path: /actuator/health
-                      port: 8080
+                      port: 8084
                     initialDelaySeconds: 120
                     timeoutSeconds: 2
                     periodSeconds: 5
