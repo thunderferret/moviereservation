@@ -48,8 +48,8 @@ phases:
             app: $_PROJECT_NAME
         spec:
           ports:
-            - port: 8084
-              targetPort: 8084
+            - port: 8080
+              targetPort: 8080
           selector:
             app: $_PROJECT_NAME
         EOF
@@ -75,7 +75,7 @@ phases:
                 - name: $_PROJECT_NAME
                   image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$_PROJECT_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION
                   ports:
-                    - containerPort: 8084
+                    - containerPort: 8080
                   readinessProbe:
                     httpGet:
                       path: /actuator/health
