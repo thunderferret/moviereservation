@@ -48,8 +48,8 @@ phases:
             app: $_PROJECT_NAME
         spec:
           ports:
-            - port: 8084
-              targetPort: 8080
+            - port: 8080
+              targetPort: 8084
           selector:
             app: $_PROJECT_NAME
         EOF
