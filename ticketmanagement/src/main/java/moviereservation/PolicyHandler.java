@@ -21,6 +21,8 @@ public class PolicyHandler{
 
         // Sample Logic //
         Ticket ticket = new Ticket();
+        ticket.setReservationId(seatAssigned.getReservationId());
+        ticket.setTicketStatus("발급");
         ticketRepository.save(ticket);
             
     }
