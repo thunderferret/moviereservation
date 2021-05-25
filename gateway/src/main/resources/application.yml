@@ -57,7 +57,7 @@ spring:
         - id: ticketmanagement
           uri: http://ticketmanagement:8080
           predicates:
-            - Path=/tickets/**
+            - Path=/tickets/**, /cancelTicket/**
         - id: mypage
           uri: http://mypage:8080
           predicates:
