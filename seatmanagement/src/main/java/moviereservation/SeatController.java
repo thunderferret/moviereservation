@@ -27,11 +27,11 @@ public boolean seatRequest(HttpServletRequest request, HttpServletResponse respo
                 // modified by jungilkim (Added Code)
                 boolean ret =  false;
 
-                int seatqty = Integer.parseInt(request.getParameter("seatQty"));
-                System.out.println("##### seatQty : " + request.getParameter("seatQty") + "Current Seat : " + nTotalCount);
+                //int seatqty = Integer.parseInt(request.getParameter("seatQty"));
+                System.out.println("##### Current Seat Count : " + nTotalCount);
 
-                if(nTotalCount > seatqty){
-                        nTotalCount = nTotalCount - seatqty;
+                if(nTotalCount > 0){
+                        nTotalCount = nTotalCount - 1;
                         ret = true;
                 }
 
@@ -47,11 +47,11 @@ public boolean seatCancel(HttpServletRequest request, HttpServletResponse respon
                 // modified by jungilkim (Added Code)
                 boolean ret =  false;
 
-                int seatqty = Integer.parseInt(request.getParameter("seatQty"));
-                System.out.println("##### seatQty : " + request.getParameter("seatQty") + "Current Seat : " + nTotalCount);
+                //int seatqty = Integer.parseInt(request.getParameter("seatQty"));
+                System.out.println("##### Current Seat Count : " + nTotalCount);
 
-                if(seatqty + nTotalCount <= 100){
-                        nTotalCount = nTotalCount + seatqty;
+                if(nTotalCount < 100){
+                        nTotalCount = nTotalCount + 1;
                         ret = true;
                 }
 
