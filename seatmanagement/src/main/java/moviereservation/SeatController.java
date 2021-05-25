@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
         method = RequestMethod.POST,
         produces = "application/json;charset=UTF-8")
 
+  /*
 public boolean seatRequest(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
                 // modified by jungilkim (Added Code)
@@ -41,6 +42,22 @@ public boolean seatRequest(HttpServletRequest request, HttpServletResponse respo
                 }
 
                 return ret;
+        }
+        */
+  
+          public boolean seatRequest(@RequestBody Seat seat) throws Exception {
+                // modified by jungilkim (Added Code)
+                boolean ret = false;
+
+                System.out.println("seat : " + seat.getReservationId());
+                System.out.println("seat : " + seat);
+                return ret;
+
+                // int seatqty = Integer.parseInt(request.getParameter("seatQty"));
+                // long reservationId = Long.valueOf(request.getParameter("reservationId"));
+                // System.out.println("##### reservationId : " +
+                // request.getParameter("reservationId") + "Current Seat : "
+                // + nTotalCount);
         }
 
 @RequestMapping(value = "/cancelReserveSeat",
