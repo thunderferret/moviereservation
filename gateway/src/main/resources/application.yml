@@ -46,8 +46,6 @@ spring:
           uri: http://reservations:8080
           predicates:
             - Path=/reservations/**
-            - Path=/reserveSeat/**
-            - Path=/cancelReserveSeat/**
         - id: payment
           uri: http://payment:8080
           predicates:
