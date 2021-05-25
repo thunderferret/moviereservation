@@ -28,6 +28,8 @@ public class Payment {
 
         moviereservation.external.Seat seat = new moviereservation.external.Seat();
         // mappings goes here
+        seat.setReservationId(this.reservationId);
+        seat.setSeatQty(1L);
         PaymentApplication.applicationContext.getBean(moviereservation.external.SeatService.class).reserveSeat(seat);
 
     }
@@ -43,7 +45,9 @@ public class Payment {
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
         moviereservation.external.Seat seat = new moviereservation.external.Seat();
-        // mappings goes here
+
+        seat.setReservationId(this.reservationId);
+        seat.setSeatQty(1L);
         PaymentApplication.applicationContext.getBean(moviereservation.external.SeatService.class)
                 .cancelReserveSeat(seat);
 
