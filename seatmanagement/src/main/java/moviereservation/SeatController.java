@@ -28,6 +28,7 @@ public boolean seatRequest(HttpServletRequest request, HttpServletResponse respo
                 boolean ret =  false;
 
                 //int seatqty = Integer.parseInt(request.getParameter("seatQty"));
+                long reservationId = Long.valueOf(request.getParameter("reservationId"));
                 System.out.println("##### reservationId : " + request.getParameter("reservationId") + "Current Seat : " + nTotalCount);
 
                 if(nTotalCount > 0){
@@ -52,6 +53,7 @@ public boolean seatCancel(HttpServletRequest request, HttpServletResponse respon
                 boolean ret =  false;
 
                 //int seatqty = Integer.parseInt(request.getParameter("seatQty"));
+                long reservationId = Long.valueOf(request.getParameter("reservationId"));
                 System.out.println("##### reservationId : " + request.getParameter("reservationId") + "Current Seat : " + nTotalCount);
 
                 if(nTotalCount < 100){
