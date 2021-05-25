@@ -8,7 +8,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: reservation
+        - id: reservations
           uri: http://localhost:8081
           predicates:
             - Path=/reservations/** 
@@ -47,7 +47,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: reservation
+        - id: reservations
           uri: http://reservation:8080
           predicates:
             - Path=/reservations/** 
