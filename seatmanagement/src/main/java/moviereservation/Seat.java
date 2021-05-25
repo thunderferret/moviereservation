@@ -15,7 +15,8 @@ public class Seat {
     private Long reservationId;
     private Long seatQty;
 
-    @PrePersist void onPrePersist() {
+    @PrePersist
+    public void onPrePersist() {
         SeatAssigned seatAssigned = new SeatAssigned();
         BeanUtils.copyProperties(this, seatAssigned);
         seatAssigned.publishAfterCommit();
