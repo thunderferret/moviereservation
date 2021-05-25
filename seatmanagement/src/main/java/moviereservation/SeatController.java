@@ -28,11 +28,15 @@ public boolean seatRequest(HttpServletRequest request, HttpServletResponse respo
                 boolean ret =  false;
 
                 //int seatqty = Integer.parseInt(request.getParameter("seatQty"));
-                System.out.println("##### Current Seat Count : " + nTotalCount);
+                System.out.println("##### reservationId : " + request.getParameter("reservationId") + "Current Seat : " + nTotalCount);
 
                 if(nTotalCount > 0){
                         nTotalCount = nTotalCount - 1;
                         ret = true;
+                 
+                        Seat seat = new Seat();
+                        seat.setReservationId(reservationId);
+                        seatRepository.save(seat);
                 }
 
                 return ret;
@@ -48,11 +52,15 @@ public boolean seatCancel(HttpServletRequest request, HttpServletResponse respon
                 boolean ret =  false;
 
                 //int seatqty = Integer.parseInt(request.getParameter("seatQty"));
-                System.out.println("##### Current Seat Count : " + nTotalCount);
+                System.out.println("##### reservationId : " + request.getParameter("reservationId") + "Current Seat : " + nTotalCount);
 
                 if(nTotalCount < 100){
                         nTotalCount = nTotalCount + 1;
                         ret = true;
+                 
+                        Seat seat = new Seat();
+                        seat.setReservationId(reservationId);
+                        seatRepository.save(seat);
                 }
 
                 return ret;
