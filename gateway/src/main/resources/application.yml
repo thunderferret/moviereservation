@@ -53,7 +53,7 @@ spring:
         - id: seatmanagement
           uri: http://seatmanagement:8080
           predicates:
-            - Path=/seats/**
+            - Path=/seats/**, /reserveSeat/**, /cancelReserveSeat/**
         - id: ticketmanagement
           uri: http://ticketmanagement:8080
           predicates:
