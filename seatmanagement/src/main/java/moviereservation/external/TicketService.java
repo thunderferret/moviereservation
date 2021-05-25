@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name="ticketmanagement", url="http://ticketmanagement:8084")
 public interface TicketService {
 
-    @RequestMapping(method= RequestMethod.GET, path="/cancelTicket")
+    @RequestMapping(method= RequestMethod.POST, path="/cancelTicket")
     // modified by jungilkim
     public void cancelTicket(@RequestParam("reservationId") Long reservationId, @RequestParam("ticketStatus") String ticketStatus);
 }
