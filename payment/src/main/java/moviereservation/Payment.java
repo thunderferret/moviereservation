@@ -20,6 +20,7 @@ public class Payment {
     public void onPostPersist() {
         Approved approved = new Approved();
         BeanUtils.copyProperties(this, approved);
+        approved.setStatus("approved");
         approved.publishAfterCommit();
 
         // Following code causes dependency to external APIs
@@ -35,6 +36,7 @@ public class Payment {
     public void onPostUpdate() {
         PayCancelled payCancelled = new PayCancelled();
         BeanUtils.copyProperties(this, payCancelled);
+        payCancelled.setStatus("cancelled");
         payCancelled.publishAfterCommit();
 
         // Following code causes dependency to external APIs
