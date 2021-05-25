@@ -6,7 +6,7 @@ import socket
 
 
 # To consume latest messages and auto-commit offsets
-consumer = KafkaConsumer('',
+consumer = KafkaConsumer('reservation',
                          group_id='',
                          bootstrap_servers=['localhost:9092'])
 for message in consumer:
