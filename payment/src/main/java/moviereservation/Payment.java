@@ -30,7 +30,7 @@ public class Payment {
         // mappings goes here
         seat.setReservationId(this.reservationId);
         seat.setSeatQty(1L);
-        // PaymentApplication.applicationContext.getBean(moviereservation.external.SeatService.class).reserveSeat(seat);
+        PaymentApplication.applicationContext.getBean(moviereservation.external.SeatService.class).reserveSeat(seat);
 
     }
 
@@ -48,7 +48,8 @@ public class Payment {
 
         seat.setReservationId(this.reservationId);
         seat.setSeatQty(1L);
-        // PaymentApplication.applicationContext.getBean(moviereservation.external.SeatService.class).cancelReserveSeat(seat);
+        PaymentApplication.applicationContext.getBean(moviereservation.external.SeatService.class)
+                .cancelReserveSeat(seat);
 
     }
 
