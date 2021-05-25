@@ -14,5 +14,5 @@ public interface TicketService {
 
     @RequestMapping(method= RequestMethod.GET, path="/cancelTicket")
     // modified by jungilkim
-    public void cancelTicket(@RequestParam("reservationId") Long reservationId, @RequestParam("reservationId") String ticketStatus);
+    public void cancelTicket(@RequestParam("reservationId") Long reservationId, @RequestParam("ticketStatus") String ticketStatus);
 }
