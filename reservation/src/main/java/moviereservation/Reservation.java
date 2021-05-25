@@ -27,6 +27,9 @@ public class Reservation {
 
         moviereservation.external.Payment payment = new moviereservation.external.Payment();
         // mappings goes here
+        payment.setReservationId(this.id);
+        payment.setPaymentStatus(this.reservationStatus);
+
         ReservationApplication.applicationContext.getBean(moviereservation.external.PaymentService.class)
             .pay(payment);
 
